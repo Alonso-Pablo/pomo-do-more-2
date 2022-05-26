@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DinRound';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../public/fonts/din-round/DINRoundPro-Light.woff2');
+}
+
+@font-face {
+  font-family: 'DinRound';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../public/fonts/din-round/DINRoundPro-Light.woff2');
+}
+
+@font-face {
+  font-family: 'DinRound';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../public/fonts/din-round/DINRoundPro-Medium.woff2');
+}
+
+@font-face {
+  font-family: 'DinRound';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../public/fonts/din-round/DINRoundPro-Bold.woff2');
+}
+
+@font-face {
+  font-family: 'DinRound';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../public/fonts/din-round/DINRoundPro-Black.woff2');
+}

@@ -1,0 +1,16 @@
+.back--sunken {
+  @apply rounded-lg pt-1 bg-gray-light;
+}
+
+.front--sunken {
+  @apply rounded-lg p-3 pt-4 bg-white;
+}
+
+
+.back--elevated {
+  @apply rounded pb-1 bg-gray-light;
+}
+
+.front--elevated {
+  @apply rounded p-3 bg-white;
+}
