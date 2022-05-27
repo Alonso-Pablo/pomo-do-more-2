@@ -11,16 +11,17 @@ const variants: Variants = {
 }
 
 interface PanelProps {
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode | React.ReactNode[];
   backClassName?: string;
   frontClassName?: string;
   variant?: "sunken" | "elevated";
+  onClick?: () => void;
 }
 
-export default function Panel({ children, backClassName, frontClassName, variant = 'elevated'}: PanelProps) {
+export default function Panel({ children, backClassName, frontClassName, variant = 'elevated', onClick, ...rest}: PanelProps) {
  return (
-    <div className={clsx(style[variants[variant][0]], backClassName && backClassName)}>
-      <div className={clsx(style[variants[variant][1]], frontClassName && frontClassName)}>
+    <div className={clsx(style[variants[variant][0]], backClassName && backClassName)} onClick={onClick} {...rest}>
+      <div className={clsx(style[variants[variant][1]], frontClassName && frontClassName)} >
         { children }
       </div>
     </div>

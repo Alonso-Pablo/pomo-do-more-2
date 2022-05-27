@@ -57,6 +57,31 @@ export interface ListProps<Value> {
   container?: Element | null
 }
 
-
-
 export type TEvent = React.MouseEvent | React.TouchEvent | React.KeyboardEvent
+
+export interface Task {
+  title: string,
+  pomodoros: {
+    estimated: number;
+    completed: number;
+  }
+  status: {
+    menu: boolean;
+    information: boolean;
+    editing: boolean;
+  }
+  finished: boolean;
+}
+
+export interface RenderList {
+  children: React.ReactNode;
+  props: {
+    ref: React.RefObject<any>
+  }
+}
+
+export interface RenderItem {
+  value: Task;
+  props: ItemProps;
+  isDragged: boolean;
+}

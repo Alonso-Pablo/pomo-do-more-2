@@ -1,20 +1,32 @@
-import clsx from "clsx";
+import clsx from "clsx"
+import style from './Input.module.css'
 
 interface InputProps {
   label?: string | JSX.Element;
   labelClassName?: string;
   className?: string;
+  backClassName?: string;
   disabled?: boolean;
+  placeHolder?: string;
 }
 
-export default function Input({ label, labelClassName, className, disabled, ...rest }: InputProps) {
+export default function Input({
+  label,
+  labelClassName,
+  className,
+  backClassName,
+  disabled,
+  placeHolder,
+  ...rest
+}: InputProps) {
   return (
-    <label className={"flex flex-col " + clsx(labelClassName && labelClassName)}>
+    <label className={clsx(style['label'], labelClassName && labelClassName)}>
       {label && <span>{label}</span>}
-      <div className="bg-gray-300 rounded">
+      <div className={clsx(style['container-input'], backClassName && backClassName)}>
         <input
-          className={"w-full relative top-0.5 rounded text-black py-1 pl-2" + clsx(className && className)}
+          className={clsx(style['input'], className && className)}
           disabled={disabled}
+          placeholder={placeHolder}
           {...rest}
         />
       </div>

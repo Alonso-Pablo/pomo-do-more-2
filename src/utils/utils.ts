@@ -1,3 +1,4 @@
+// List Component
 export function getTranslateOffset(element: Element) {
   const style = window.getComputedStyle(element)
   return (
@@ -112,4 +113,13 @@ export function checkIfInteractive(target: Element, rootElement: Element) {
     if (target.tagName) target = target.parentElement!
   }
   return false
+}
+
+export function arrayMove<T>(array: T[], from: number, to: number) {
+  array = array.slice()
+  array.splice((to < 0)
+    ? array.length + to
+    : to, 0, array.splice(from, 1)[0]
+  )
+  return array
 }

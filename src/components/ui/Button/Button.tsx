@@ -30,10 +30,11 @@ interface ButtonProps {
   className?: string;
   frontClassName?: string;
   backClassName?: string;
-  children?: React.ReactElement;
+  children?: React.ReactElement | React.ReactElement[];
   icon?: React.ReactElement;
   height?: 'high' | 'normal' | 'low';
   variant?: 'text' | 'contained' | 'outlined';
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export default function Button({
@@ -41,13 +42,14 @@ export default function Button({
   disabled,
   label,
   labelClassName,
+  className,
   frontClassName,
   backClassName,
   children,
   icon,
   height = 'normal',
   variant = 'contained',
-  className,
+  type = 'button',
   ...rest
 }: ButtonProps): JSX.Element {
   const [ pressed, setPressed ] = useState<boolean>(false)
@@ -55,6 +57,9 @@ export default function Button({
   function handleOnClick() {
     if (!disabled) {
       setPressed(!pressed)
+      if (onClick) {
+        onClick()
+      }
       return
     }
     if (!pressed) {
@@ -63,7 +68,7 @@ export default function Button({
   }
 
   const content = (
-    <div className={clsx(style['content'], disabled && style['content-disabled'])}>
+    <>
       {label
         ? <>
             {icon && icon}
@@ -75,7 +80,7 @@ export default function Button({
             {children}
           </>
       }
-    </div>
+    </>
   )
 
   return (
@@ -83,6 +88,7 @@ export default function Button({
       onClick={handleOnClick}
       className={clsx(style[variants[variant]], className && className, backClassName && backClassName)}
       disabled={disabled}
+      type={type}
       {...rest}
     >
       {variant === 'contained'

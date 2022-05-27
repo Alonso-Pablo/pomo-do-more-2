@@ -1,0 +1,15 @@
+.label {
+  @apply flex flex-col
+}
+
+.container-input {
+  @apply rounded bg-gray-regular pt-0.5
+}
+
+.input {
+  @apply w-full rounded text-tomato-dark py-1 pl-2 font-bold
+}
+
+.input::placeholder {
+  @apply text-tomato-light font-bold opacity-50
+}
