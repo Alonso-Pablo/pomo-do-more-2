@@ -8,30 +8,48 @@ import Panel from '@components/ui/Panel'
 
 export default function Home() {
   return (
-    <main className="h-screen font-main bg-tomato-regular">
-      <div className="max-w-lg p-5 mx-auto">
-        {/* Tasks */}
-        <Panel
-          variant="sunken"
-          backClassName="bg-tomato-darkest"
-          frontClassName="bg-tomato-dark"
-        >
-          <AddTask />
-          <TaskPanel renderList={TaskList} renderItem={TaskItem} />
-        </Panel>
+    <main className="flex w-full h-full font-main bg-tomato-regular grow">
+      <div className="flex flex-col justify-center w-full h-full max-w-lg p-5 mx-auto gap-y-10">
+        <div className="flex flex-col gap-y-4">
+          {/* First hole - Add Tasks */}
+          <Panel
+            variant="sunken"
+            backClassName="bg-tomato-darkest"
+            frontClassName="bg-tomato-dark pt-3"
+            >
+            <AddTask />
+          </Panel>
+
+          {/* Second hole - Panel Tasks */}
+          <Panel
+            variant="sunken"
+            backClassName="bg-tomato-darkest"
+            frontClassName="bg-tomato-dark p-0"
+            >
+            <TaskPanel renderList={TaskList} renderItem={TaskItem} />
+          </Panel>
+        </div>
 
         {/* Clock */}
-        <Panel backClassName="bg-tomato-dark my-3" frontClassName="bg-tomato-light text-center text-white">
-            <p className="font-bold text-8xl">25:00</p>
-        </Panel>
-        <div className="flex justify-between my-5">
-          <Button height="high">
-            <p className="w-24 text-2xl font-bold uppercase text-tomato-dark">start</p>
-          </Button>
+        <div className="flex flex-col gap-y-8">
+          <Panel
+            backClassName="bg-tomato-dark"
+            frontClassName="bg-tomato-light text-center text-white"
+            >
+              <p className="font-bold text-8xl">25:00</p>
+          </Panel>
 
-          <Button height="high">
-            <p className="w-24 text-2xl font-bold uppercase text-tomato-dark">stop</p>
-          </Button>
+          {/* Buttons */}
+          <div className="flex justify-between">
+            <Button height="high">
+              <p className="w-24 text-2xl font-bold uppercase text-tomato-dark">start</p>
+            </Button>
+
+            <Button height="high">
+              <p className="w-24 text-2xl font-bold uppercase text-tomato-dark">stop</p>
+            </Button>
+          </div>
+
         </div>
       </div>
     </main>

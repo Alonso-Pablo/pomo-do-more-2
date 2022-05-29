@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 @layer utilities {
+  html,
+  body,
+  #root {
+    @apply h-full
+  }
+
   li {
-    list-style: none;
+    @apply list-none
   }
 
   .scrollbar::-webkit-scrollbar {
-    width: 8px;
-    height: 10px;
+    @apply w-2 h-2.5
   }
   .scrollbar::-webkit-scrollbar-track {
     @apply bg-tomato-darkest;

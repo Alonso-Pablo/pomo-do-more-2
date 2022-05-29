@@ -72,6 +72,17 @@ module.exports = {
           '65%': { transform: 'translate(0, -0px)'},
           '100%': { transform: 'translate(0, -4px)'},
         },
+        // Others
+        'appearLeft': {
+          '0%': { transform: 'translate(-460px, 0)'},
+          '65%': { transform: 'translate(8px, 0)'},
+          '100%': { transform: 'translate(0px, 0)'},
+        },
+        'appearBottom': {
+          '0%': { transform: 'translate(0, 54px)'},
+          '65%': { transform: 'translate(0, -5px)'},
+          '100%': { transform: 'translate(0, 0px)'},
+        },
       },
       animation: {
         // High
@@ -83,6 +94,9 @@ module.exports = {
         // Low
         'pressInLow': 'pressInLow 0.5s forwards',
         'pressOutLow': 'pressOutLow 0.3s forwards',
+        // Others
+        'appearLeft': 'appearLeft 0.7s forwards',
+        'appearBottom': 'appearBottom 0.7s forwards',
       },
     },
   },

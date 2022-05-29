@@ -2,6 +2,7 @@ import clsx from "clsx"
 import style from './Input.module.css'
 
 interface InputProps {
+  name?: string;
   label?: string | JSX.Element;
   labelClassName?: string;
   className?: string;
@@ -11,6 +12,7 @@ interface InputProps {
 }
 
 export default function Input({
+  name,
   label,
   labelClassName,
   className,
@@ -24,6 +26,7 @@ export default function Input({
       {label && <span>{label}</span>}
       <div className={clsx(style['container-input'], backClassName && backClassName)}>
         <input
+          name={name}
           className={clsx(style['input'], className && className)}
           disabled={disabled}
           placeholder={placeHolder}

@@ -1,11 +1,12 @@
-import { useState } from "react"
-import { RenderItem, RenderList, Task } from "@ts/types"
+import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { RenderItem, RenderList, State, Task } from "@ts/types"
 import { arrayMove } from "@utils/utils"
 import List from "@components/List"
-import TaskList from "@components/TaskList"
-import TaskItem from "@components/TaskItem"
+import { RootState } from "redux/store"
 
 const exampleTask: Task = {
+  id: 'adfsdfger343g34gyh34',
   title: 'Example Task',
   pomodoros: {
     estimated: 4,
@@ -25,11 +26,20 @@ interface TaskPanelProps {
 }
 
 export default function TaskPanel({ renderList, renderItem }: TaskPanelProps) {
-  const [ tasks, setTasks ] = useState<Task[]>([exampleTask, exampleTask, exampleTask, exampleTask, exampleTask, exampleTask, exampleTask, exampleTask])
+  const task = useSelector((state: RootState) => state.task.task.tasks);
+  const state = useSelector((state: RootState) => state.task)
+  const [ tasks, setTasks ] = useState<Task[]>([])
+
 
   function onChangeTasks({ oldIndex, newIndex }: { oldIndex: number, newIndex: number}) {
     setTasks(arrayMove(tasks, oldIndex, newIndex))
   }
+
+  useEffect(() => {
+    setTasks(task)
+    localStorage.setItem('pomo-state', JSON.stringify(state))
+  }, [task])
+
 
   return (
     <List 

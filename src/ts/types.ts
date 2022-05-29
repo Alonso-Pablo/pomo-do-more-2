@@ -60,7 +60,8 @@ export interface ListProps<Value> {
 export type TEvent = React.MouseEvent | React.TouchEvent | React.KeyboardEvent
 
 export interface Task {
-  title: string,
+  id: string;
+  title: string;
   pomodoros: {
     estimated: number;
     completed: number;
@@ -71,6 +72,21 @@ export interface Task {
     editing: boolean;
   }
   finished: boolean;
+}
+
+export interface State {
+  task: {
+    tasks: Task[];
+  }
+}
+
+export interface TaskContextValue {
+  task: {
+    tasks: Task[];
+  };
+  createTask: (task: Task) => void
+  updateTask: (task: Task) => void
+  removeTask: (task: Task) => void
 }
 
 export interface RenderList {

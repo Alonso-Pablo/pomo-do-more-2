@@ -21,8 +21,10 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@ui/*": ["components/ui/*"],
+      "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
       "@public/*": ["public/*"],
+      "@redux/*": ["redux/*"],
       "@ts/*": ["ts/*"],
       "@utils/*": ["utils/*"],
     }
