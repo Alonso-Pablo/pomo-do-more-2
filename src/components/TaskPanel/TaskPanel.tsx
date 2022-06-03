@@ -5,21 +5,6 @@ import { arrayMove } from "@utils/utils"
 import List from "@components/List"
 import { RootState } from "redux/store"
 
-const exampleTask: Task = {
-  id: 'adfsdfger343g34gyh34',
-  title: 'Example Task',
-  pomodoros: {
-    estimated: 4,
-    completed: 1,
-  },
-  status: {
-    menu: false,
-    information: false,
-    editing: false,
-  },
-  finished: false,
-}
-
 interface TaskPanelProps {
   renderList: ({ children, props }: RenderList) => JSX.Element;
   renderItem: ({ value, props, isDragged }: RenderItem) => JSX.Element
@@ -39,7 +24,6 @@ export default function TaskPanel({ renderList, renderItem }: TaskPanelProps) {
     setTasks(task)
     localStorage.setItem('pomo-state', JSON.stringify(state))
   }, [task])
-
 
   return (
     <List 

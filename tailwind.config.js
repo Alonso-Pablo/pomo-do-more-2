@@ -25,13 +25,17 @@ module.exports = {
     colors: {
       'tomato': {
         light: '#FF8873',
-        regular: '#FF6347',
+        normal: '#FF6347',
         dark: '#D35A44',
         darkest: '#BF452F',
       },
+      'green': {
+        normal: '#45D398',
+        dark: '#16BE78',
+      },
       'gray': {
         light: '#E6E6E6',
-        regular: '#C1C1C1',
+        normal: '#C1C1C1',
       },
       'white': '#FFFFFF',
       'black': '#000000',

@@ -35,7 +35,6 @@ export default function AddTask() {
       },
       finished: false,
     }
-    console.log('Tarea Creada')
     dispatch(createTask(task))
   }
 
@@ -68,7 +67,7 @@ export default function AddTask() {
             type="submit"
             height="low"
             backClassName="bg-tomato-dark"
-            frontClassName="bg-tomato-regular"
+            frontClassName="bg-tomato-normal"
           >
             <Icon icon="arrow-enter" className="text-white fill-white" />
           </Button>

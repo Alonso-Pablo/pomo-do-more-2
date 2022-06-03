@@ -8,7 +8,7 @@ import Panel from '@components/ui/Panel'
 
 export default function Home() {
   return (
-    <main className="flex w-full h-full font-main bg-tomato-regular grow">
+    <main className="flex w-full h-full font-main bg-tomato-normal grow">
       <div className="flex flex-col justify-center w-full h-full max-w-lg p-5 mx-auto gap-y-10">
         <div className="flex flex-col gap-y-4">
           {/* First hole - Add Tasks */}

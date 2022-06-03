@@ -21,7 +21,7 @@
     border-radius: 100px;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-tomato-regular;
+    @apply bg-tomato-normal;
     border-radius: 100vh;
   }
   .scrollbar::-webkit-scrollbar-thumb:hover {

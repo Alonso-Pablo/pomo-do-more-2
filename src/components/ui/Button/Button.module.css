@@ -17,7 +17,7 @@
 
 
 .back--outlined {
-  @apply rounded bg-transparent border-2 border-tomato-regular;
+  @apply rounded bg-transparent border-2 border-tomato-normal;
 }
 
 

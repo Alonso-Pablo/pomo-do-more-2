@@ -3,7 +3,7 @@
 }
 
 .container-input {
-  @apply rounded bg-gray-regular pt-0.5
+  @apply rounded bg-gray-normal pt-0.5
 }
 
 .input {
