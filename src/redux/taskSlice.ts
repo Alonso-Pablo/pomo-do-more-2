@@ -18,10 +18,10 @@ export const taskSlice = createSlice({
   name: "task",
   initialState,
   reducers: {
-    createTask: (state, action: PayloadAction<Task>) => {
+    createTask: (state, action: PayloadAction<Task>): void => {
       state.task.tasks = state.task.tasks.concat(action.payload)
     },
-    updateTask: (state, action: PayloadAction<Task>) => {
+    updateTask: (state, action: PayloadAction<Task>): void => {
       state.task.tasks = state.task.tasks.map(task => {
           if(task.id === action.payload.id) {
             return action.payload
@@ -30,7 +30,7 @@ export const taskSlice = createSlice({
           return task
         })
     },
-    removeTask: (state, action: PayloadAction<Task>) => {
+    removeTask: (state, action: PayloadAction<Task>): void => {
       state.task.tasks = state.task.tasks.filter(task => task.id !== action.payload.id)
     }
   }

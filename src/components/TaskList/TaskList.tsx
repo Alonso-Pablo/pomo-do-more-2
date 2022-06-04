@@ -4,17 +4,21 @@ import { RenderList } from "@ts/types"
 interface TaskListProps extends RenderList {}
 
 export default function TaskList({ children, props }: TaskListProps) {
-  return (
+  if(children.length) return (
     <Panel
-      backClassName="bg-transparent pl-0"
-      frontClassName="bg-transparent p-0"
+      variant="sunken"
+      backClassName="bg-tomato-darkest"
+      frontClassName="flex w-full bg-tomato-dark p-0"
     >
       <ul
-        className="flex flex-col px-0 overflow-y-scroll transition-all bg-transparent rounded max-h-96 gap-y-3 first:pt-4 last:pb-2 no-scrollbar"
+        className="flex w-full flex-col px-0 pb-3 overflow-y-scroll transition-all bg-transparent rounded max-h-96 gap-y-3 first:pt-3 no-scrollbar"
         {...props}
       >
         {children}
       </ul>
     </Panel>
+
   )
+
+  return (<></>)
 }

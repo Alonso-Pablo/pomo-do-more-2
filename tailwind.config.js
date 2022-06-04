@@ -2,6 +2,10 @@ module.exports = {
   mode: 'jit',
   important: true,
   content: ["./src/**/*.{react,js,ts,jsx,tsx}"],
+  purge: [
+    './public/**/*.html',
+    './src/**/*.{js,ts,tsx}',
+  ],
   theme: {
     fontFamily: {
       'main': [
@@ -34,6 +38,7 @@ module.exports = {
         dark: '#16BE78',
       },
       'gray': {
+        ultralight: '#FAFAFA',
         light: '#E6E6E6',
         normal: '#C1C1C1',
       },

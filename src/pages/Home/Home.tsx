@@ -5,38 +5,33 @@ import TaskList from '@components/TaskList'
 import TaskPanel from '@components/TaskPanel'
 import Button from '@components/ui/Button'
 import Panel from '@components/ui/Panel'
+import { RootState } from '@redux/store'
+import clsx from 'clsx'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
+  const tasks = useSelector((state: RootState) => state.task.task.tasks)
+  console.log(tasks)
   return (
-    <main className="flex w-full h-full font-main bg-tomato-normal grow">
-      <div className="flex flex-col justify-center w-full h-full max-w-lg p-5 mx-auto gap-y-10">
-        <div className="flex flex-col gap-y-4">
+    <main className="flex h-full font-main bg-tomato-normal grow py-10">
+      <div className="flex flex-col w-full h-full max-w-lg p-5 mx-auto gap-y-10">
+        <div className={clsx("flex flex-col gap-y-4 grow",
+          tasks.length ? "justify-start" : "justify-center"
+        )}>
           {/* First hole - Add Tasks */}
-          <Panel
-            variant="sunken"
-            backClassName="bg-tomato-darkest"
-            frontClassName="bg-tomato-dark pt-3"
-            >
-            <AddTask />
-          </Panel>
-
+          <AddTask />
           {/* Second hole - Panel Tasks */}
-          <Panel
-            variant="sunken"
-            backClassName="bg-tomato-darkest"
-            frontClassName="bg-tomato-dark p-0"
-            >
-            <TaskPanel renderList={TaskList} renderItem={TaskItem} />
-          </Panel>
+          <TaskPanel renderList={TaskList} renderItem={TaskItem} />
         </div>
 
         {/* Clock */}
         <div className="flex flex-col gap-y-8">
           <Panel
-            backClassName="bg-tomato-dark"
-            frontClassName="bg-tomato-light text-center text-white"
+            variant="sunken"
+            backClassName="bg-tomato-darkest"
+            frontClassName="bg-tomato-dark text-center text-white p-0 pb-2"
             >
-              <p className="font-bold text-8xl">25:00</p>
+              <p className="text-white font-bold text-8xl">25:00</p>
           </Panel>
 
           {/* Buttons */}

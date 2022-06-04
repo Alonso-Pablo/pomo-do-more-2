@@ -9,6 +9,9 @@ interface InputProps {
   backClassName?: string;
   disabled?: boolean;
   placeHolder?: string;
+  value?: string;
+  defaultValue?: string;
+  required?: boolean;
 }
 
 export default function Input({
@@ -19,6 +22,9 @@ export default function Input({
   backClassName,
   disabled,
   placeHolder,
+  value,
+  defaultValue,
+  required,
   ...rest
 }: InputProps) {
   return (
@@ -30,6 +36,9 @@ export default function Input({
           className={clsx(style['input'], className && className)}
           disabled={disabled}
           placeholder={placeHolder}
+          value={value}
+          defaultValue={defaultValue}
+          required={required}
           {...rest}
         />
       </div>

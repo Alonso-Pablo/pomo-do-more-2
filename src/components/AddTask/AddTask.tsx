@@ -40,39 +40,46 @@ export default function AddTask() {
 
   return (
     <Panel
-      backClassName="w-full cursor-pointer"
-      frontClassName={clsx("bg-white flex justify-between p-0 h-8 transition-all overflow-hidden", isAddingTask && "transition-all h-14")}
+      variant="sunken"
+      backClassName="bg-tomato-darkest"
+      frontClassName="bg-tomato-dark pt-3"
     >
-      <Button
-        variant="text"
-        className={clsx('py-3', (isAddingTask === false) && 'w-full','flex justify-start items-center')}
-        onClick={handlerAddTask}
+      <Panel
+        backClassName="w-full cursor-pointer"
+        frontClassName={clsx("bg-white flex justify-between p-0 h-8 transition-all overflow-hidden", isAddingTask && "transition-all h-14")}
       >
-        <Icon
-          icon="plus"
-          className={clsx("rotate-0 transition-transform", isAddingTask && "flex items-center rotate-45 transition-transform")}
-        />
-      </Button>
-
-      {isAddingTask &&
-        <form className="flex py-3 pr-3 justify-evenly grow gap-x-3" onSubmit={handleCreateTask}>
-          <Input
-            name="task-name"
-            placeHolder="What are we doing today?"
-            labelClassName="grow"
-            backClassName="bg-gray-dark"
-            className="bg-gray-light h-7"
+        <Button
+          variant="text"
+          className={clsx('py-3', (isAddingTask === false) && 'w-full','flex justify-start items-center')}
+          onClick={handlerAddTask}
+        >
+          <Icon
+            icon="plus"
+            className={clsx("rotate-0 transition-transform", isAddingTask && "flex items-center rotate-45 transition-transform")}
           />
-          <Button
-            type="submit"
-            height="low"
-            backClassName="bg-tomato-dark"
-            frontClassName="bg-tomato-normal"
-          >
-            <Icon icon="arrow-enter" className="text-white fill-white" />
-          </Button>
-        </form>
-      }
+        </Button>
+
+        {isAddingTask &&
+          <form className="flex py-3 pr-3 justify-evenly grow gap-x-3" onSubmit={handleCreateTask}>
+            <Input
+              name="task-name"
+              placeHolder="What are we doing today?"
+              labelClassName="grow"
+              backClassName="bg-gray-dark"
+              className="bg-gray-light h-7"
+              required
+            />
+            <Button
+              type="submit"
+              height="low"
+              backClassName="bg-tomato-dark"
+              frontClassName="bg-tomato-normal"
+            >
+              <Icon icon="arrow-enter" className="text-white fill-white" />
+            </Button>
+          </form>
+        }
+      </Panel>
     </Panel>
   )
 }

@@ -1,8 +1,10 @@
-import ArrowEnter from '@components/icons/ArrowEnter';
-import Grip from '@components/icons/Grip';
-import OptionVertical from '@components/icons/OptionVertical';
+import ArrowEnter from '@components/icons/ArrowEnter'
+import Grip from '@components/icons/Grip'
+import OptionVertical from '@components/icons/OptionVertical'
 import Plus from '@components/icons/Plus'
-import clsx from 'clsx';
+import PomoCompleted from '@components/icons/PomoCompleted'
+import PomoTargeted from '@components/icons/PomoTargeted'
+import clsx from 'clsx'
 
 interface Icons {
   [key: string]: () => JSX.Element
@@ -13,6 +15,8 @@ const icons: Icons = {
   'grip': Grip,
   'arrow-enter': ArrowEnter,
   'option-vertical': OptionVertical,
+  'pomo-completed': PomoCompleted,
+  'pomo-targeted': PomoTargeted,
 }
 
 interface IconProps {
