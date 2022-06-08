@@ -90,7 +90,7 @@ export interface TaskContextValue {
 }
 
 export interface RenderList {
-  children: React.ReactNode[];
+  children: React.ReactNode | React.ReactNode[];
   props: {
     ref: React.RefObject<any>
   }

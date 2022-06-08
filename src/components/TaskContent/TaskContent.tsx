@@ -84,7 +84,7 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
                   className="py-0 px-3"
                   type="button"
                   onClick={handleIsEditing}
-                  >
+                >
                   <Icon
                     icon="plus"
                     className="flex items-center rotate-45 transition-transform"
@@ -152,9 +152,15 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
 
       {/* More Options */}
       {isDisplayOptions &&
-        <div className="w-full flex py-2 px-5">
+        <div className="w-full flex py-2 px-5 gap-x-3">
           <div className="flex justify-start grow">
-            <Button onClick={handleDoneTask} height="low" backClassName="bg-green-dark" frontClassName="bg-green-normal py-0 w-24">
+            <Button 
+              onClick={handleDoneTask}
+              height="low"
+              backClassName="bg-green-dark grow"
+              // frontClassName="bg-green-normal py-0 w-24"
+              frontClassName="bg-green-normal py-0 px-0"
+            >
               <p className="text-white font-semibold text-lg">
                 {value.finished
                   ? "Undone"
@@ -164,14 +170,26 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
             </Button>
           </div>
           <div className="flex justify-center grow">
-            <Button onClick={handleIsEditing} height="low"  frontClassName="bg-gray-ultralight py-0 w-24">
+            <Button 
+              onClick={handleIsEditing}
+              height="low"
+              // frontClassName="bg-gray-ultralight py-0 w-24"
+              backClassName="grow"
+              frontClassName="bg-gray-ultralight py-0 px-0"
+            >
               <p className="text-tomato-dark font-semibold text-lg">
                 Edit
               </p>
             </Button>
           </div>
           <div className="flex justify-end grow">
-            <Button onClick={handleRemoveTask} height="low" backClassName="bg-tomato-dark " frontClassName="bg-tomato-normal py-0 w-24">
+            <Button 
+              onClick={handleRemoveTask}
+              height="low"
+              backClassName="bg-tomato-dark grow"
+              // frontClassName="bg-tomato-normal py-0 w-24"
+              frontClassName="bg-tomato-normal py-0 px-0"
+            >
               <p className="text-white font-semibold text-lg">
                 Delete
               </p>

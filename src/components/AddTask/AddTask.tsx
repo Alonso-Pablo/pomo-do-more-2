@@ -36,6 +36,8 @@ export default function AddTask() {
       finished: false,
     }
     dispatch(createTask(task))
+
+    e.currentTarget['task-name'].value = ''
   }
 
   return (

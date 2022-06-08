@@ -35,6 +35,7 @@ interface ButtonProps {
   height?: 'high' | 'normal' | 'low';
   variant?: 'text' | 'contained' | 'outlined';
   type?: 'button' | 'submit' | 'reset';
+  isPressed?: boolean;
 }
 
 export default function Button({
@@ -50,9 +51,10 @@ export default function Button({
   height = 'normal',
   variant = 'contained',
   type = 'button',
+  isPressed,
   ...rest
 }: ButtonProps): JSX.Element {
-  const [ pressed, setPressed ] = useState<boolean>(false)
+  const [ pressed, setPressed ] = useState<boolean>(isPressed || false)
 
   function handleOnClick() {
     if (!disabled) {

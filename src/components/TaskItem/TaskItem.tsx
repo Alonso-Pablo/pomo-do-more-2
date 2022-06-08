@@ -9,7 +9,7 @@ export default function TaskItem({ value, props, isDragged }: TaskItemProps) {
   return (
     <li
       key={props.key}
-      className={clsx("px-3 w-full", isDragged === false && "animate-appearBottom")} // FUTURE CONFIG
+      className={clsx("px-3 w-full max-w-[472px]", isDragged === false && "animate-appearBottom")} // FUTURE CONFIG
       {...props}
     >
       <Panel

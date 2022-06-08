@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
-import { RenderItem, RenderList, State, Task } from "@ts/types"
+import { RenderItem, RenderList, Task } from "@ts/types"
 import { arrayMove } from "@utils/utils"
 import List from "@components/List"
 import { RootState } from "redux/store"
@@ -29,8 +29,8 @@ export default function TaskPanel({ renderList, renderItem }: TaskPanelProps) {
     <List 
       values={tasks}
       onChange={onChangeTasks}
-      renderList={renderList}
-      renderItem={renderItem}
+      renderList={(props) => renderList(props)}
+      renderItem={(props) => renderItem(props)}
     />
   )
 }
