@@ -4,6 +4,7 @@ import TaskItem from '@components/TaskItem'
 import TaskList from '@components/TaskList'
 import TaskPanel from '@components/TaskPanel'
 import Button from '@components/ui/Button'
+import Icon from '@components/ui/Icon'
 import Panel from '@components/ui/Panel'
 
 import { useClock } from '@hooks/useClock'
@@ -31,9 +32,25 @@ export default function Home() {
           <Panel
             variant="sunken"
             backClassName="bg-tomato-darkest"
-            frontClassName="bg-tomato-dark text-center text-white p-0 pb-2"
+            frontClassName="flex flex-col bg-tomato-dark text-center text-white p-0 pb-2 gap-y-4"
           >
-            <p className="font-bold text-white select-none text-8xl">{formatToTimeClock(timeRest)}</p>
+              <p className="font-bold text-white select-none text-8xl">{formatToTimeClock(timeRest)}</p>
+              {
+                <div className="flex justify-center px-3 gap-x-5">
+                  <Button onClick={restartHandler} backClassName="bg-tomato-darkest" frontClassName="flex justify-center bg-tomato-normal max-h-[40px]">
+                    <Icon icon="reload" />
+                  </Button>
+                  <Button backClassName="bg-tomato-darkest" frontClassName="flex justify-center bg-tomato-normal max-h-[40px]">
+                    <Icon icon="speaker" />
+                  </Button>
+                  <Button backClassName="bg-tomato-darkest" frontClassName="flex justify-center bg-tomato-normal max-h-[40px]">
+                    <Icon icon="gear" />
+                  </Button>
+                  <Button backClassName="bg-tomato-darkest" frontClassName="flex justify-center bg-tomato-normal max-h-[40px]">
+                    <Icon icon="user" />
+                  </Button>
+                </div>
+              }
           </Panel>
 
           {/* Two buttons */}
