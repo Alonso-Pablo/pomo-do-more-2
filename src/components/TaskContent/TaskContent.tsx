@@ -1,5 +1,5 @@
 import Button from "@components/ui/Button"
-import Icon from "@components/ui/Icon"
+import { Grip, Plus, ArrowEnter, OptionVertical, PomoTargeted, PomoCompleted } from '@components/icons'
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { createTask, updateTask, removeTask } from "@redux/taskSlice"
@@ -70,25 +70,21 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
 
   return (
     <>
-      <div className="w-full flex justify-between items-center">
-        <Icon
-          icon="grip"
-          className={clsx("fill-gray-light hover:fill-gray-normal px-3 py-2", isDragged ? 'cursor-grabbing' : 'cursor-grab')}
+      <div className="flex items-center justify-between w-full">
+        <Grip
           data-movable-handle
+          className={clsx("fill-gray-light hover:fill-gray-normal px-3 py-2", isDragged ? 'cursor-grabbing' : 'cursor-grab')}
         />
         {isEditing
           ? <form onSubmit={handleUpdateTask} className="flex py-3 pr-3 grow gap-x-3">
               <div className="flex grow">
                 <Button
                   variant="text"
-                  className="py-0 px-3"
+                  className="px-3 py-0"
                   type="button"
                   onClick={handleIsEditing}
                 >
-                  <Icon
-                    icon="plus"
-                    className="flex items-center rotate-45 transition-transform"
-                  />
+                  <Plus className="flex items-center transition-transform rotate-45" />
                 </Button>
                 <Input
                   name="new-task-name"
@@ -104,11 +100,11 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
                 backClassName="bg-tomato-dark"
                 frontClassName="bg-tomato-normal"
               >
-                <Icon icon="arrow-enter" className="text-white fill-white" />
+                <ArrowEnter className="text-white fill-white" />
               </Button>
             </form>
           : <Button variant="text" className="w-full py-1.5 px-0" onClick={handleDisplayProgressBar}>
-              <p className="text-center font-bold text-tomato-dark truncate">
+              <p className="font-bold text-center truncate text-tomato-dark">
                 {value.finished
                   ? <del>{value.title}</del>
                   : value.title
@@ -117,23 +113,20 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
             </Button>
         }
         <Button variant="text" onClick={handleDisplayOptions}>
-          <Icon
-            icon="option-vertical"
-            className="fill-gray-light hover:fill-gray-normal"
-          />
+          <OptionVertical className="fill-gray-light hover:fill-gray-normal" />
         </Button>
       </div>
 
       {/* Progress bar */}
       {isDisplayProgressBar &&
-        <div className="w-full flex py-2 px-5 pb-2 gap-x-3">
-          <div className="flex justify-center items-center bg-white rounded-lg">
-            <Icon icon="pomo-targeted" />
-            <p className="text-tomato-darkest font-semibold">
+        <div className="flex w-full px-5 py-2 pb-2 gap-x-3">
+          <div className="flex items-center justify-center bg-white rounded-lg">
+            <PomoTargeted />
+            <p className="font-semibold text-tomato-darkest">
               {value.pomodoros.estimated}
             </p>
           </div>
-          <div className="grow flex items-center">
+          <div className="flex items-center grow">
             <div className="bg-gray-light w-full py-1 px-1.5 rounded-full">
               <div style={{width: `${percentCompleted}%`}} className={`bg-tomato-normal py-0.5 pb-1.5 px-2 rounded-full`}>
                 <div className="w-full bg-tomato-light py-0.5 rounded-full">
@@ -142,8 +135,8 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
             </div>
           </div>
           <div className="flex justify-center items-cente">
-            <Icon icon="pomo-completed" />
-            <p className="text-tomato-darkest font-semibold">
+            <PomoCompleted />
+            <p className="font-semibold text-tomato-darkest">
               {value.pomodoros.completed}
             </p>
           </div>
@@ -152,16 +145,15 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
 
       {/* More Options */}
       {isDisplayOptions &&
-        <div className="w-full flex py-2 px-5 gap-x-3">
+        <div className="flex w-full px-5 py-2 gap-x-3">
           <div className="flex justify-start grow">
             <Button 
               onClick={handleDoneTask}
               height="low"
               backClassName="bg-green-dark grow"
-              // frontClassName="bg-green-normal py-0 w-24"
               frontClassName="bg-green-normal py-0 px-0"
             >
-              <p className="text-white font-semibold text-lg">
+              <p className="text-lg font-semibold text-white">
                 {value.finished
                   ? "Undone"
                   : "Done"
@@ -171,13 +163,13 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
           </div>
           <div className="flex justify-center grow">
             <Button 
+              isPressed={isEditing}
               onClick={handleIsEditing}
               height="low"
-              // frontClassName="bg-gray-ultralight py-0 w-24"
               backClassName="grow"
               frontClassName="bg-gray-ultralight py-0 px-0"
             >
-              <p className="text-tomato-dark font-semibold text-lg">
+              <p className="text-lg font-semibold text-tomato-dark">
                 Edit
               </p>
             </Button>
@@ -187,10 +179,9 @@ export default function TaskContent({ value, isDragged }: TaskContentProps) {
               onClick={handleRemoveTask}
               height="low"
               backClassName="bg-tomato-dark grow"
-              // frontClassName="bg-tomato-normal py-0 w-24"
               frontClassName="bg-tomato-normal py-0 px-0"
             >
-              <p className="text-white font-semibold text-lg">
+              <p className="text-lg font-semibold text-white">
                 Delete
               </p>
             </Button>

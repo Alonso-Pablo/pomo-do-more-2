@@ -4,9 +4,9 @@ import clsx from "clsx"
 import { v4 as uuidv4 } from 'uuid';
 import { createTask } from "@redux/taskSlice"
 import Button from "@components/ui/Button"
-import Icon from "@components/ui/Icon"
 import Input from "@components/ui/Input"
 import Panel from "@components/ui/Panel"
+import { ArrowEnter, Plus } from "@components/icons";
 
 export default function AddTask() {
   const [ isAddingTask, setIsAddingTask ] = useState<boolean>(false)
@@ -55,9 +55,11 @@ export default function AddTask() {
           className={clsx('py-3', (isAddingTask === false) && 'w-full','flex justify-start items-center')}
           onClick={handlerAddTask}
         >
-          <Icon
-            icon="plus"
-            className={clsx("rotate-0 transition-transform", isAddingTask && "flex items-center rotate-45 transition-transform")}
+          <Plus
+            className={clsx(
+              "rotate-0 transition-transform text-tomato-dark",
+              isAddingTask && "flex items-center rotate-45 transition-transform"
+            )}
           />
         </Button>
 
@@ -77,7 +79,7 @@ export default function AddTask() {
               backClassName="bg-tomato-dark"
               frontClassName="bg-tomato-normal"
             >
-              <Icon icon="arrow-enter" className="text-white fill-white" />
+              <ArrowEnter className="text-white" />
             </Button>
           </form>
         }
