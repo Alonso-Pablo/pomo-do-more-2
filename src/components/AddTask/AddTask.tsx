@@ -6,7 +6,7 @@ import { createTask } from "@redux/taskSlice"
 import Button from "@components/ui/Button"
 import Input from "@components/ui/Input"
 import Panel from "@components/ui/Panel"
-import { ArrowEnter, Plus } from "@components/icons";
+import { ArrowEnter, Plus, PomoTargeted } from "@components/Icons";
 
 export default function AddTask() {
   const [ isAddingTask, setIsAddingTask ] = useState<boolean>(false)
@@ -48,7 +48,7 @@ export default function AddTask() {
     >
       <Panel
         backClassName="w-full cursor-pointer"
-        frontClassName={clsx("bg-white flex justify-between p-0 h-8 transition-all overflow-hidden", isAddingTask && "transition-all h-14")}
+        frontClassName={clsx("bg-white flex justify-between p-0 h-8 transition-all overflow-hidden gap-x-2", isAddingTask && "transition-all h-24")}
       >
         <Button
           variant="text"
@@ -64,23 +64,39 @@ export default function AddTask() {
         </Button>
 
         {isAddingTask &&
-          <form className="flex py-3 pr-3 justify-evenly grow gap-x-3" onSubmit={handleCreateTask}>
-            <Input
-              name="task-name"
-              placeHolder="What are we going to do today?"
-              labelClassName="grow"
-              backClassName="bg-gray-dark"
-              className="bg-gray-light h-7"
-              required
-            />
-            <Button
-              type="submit"
-              height="low"
-              backClassName="bg-tomato-dark"
-              frontClassName="bg-tomato-normal"
-            >
-              <ArrowEnter className="text-white" />
-            </Button>
+          <form className="flex flex-col py-3 pr-3 justify-evenly grow gap-y-3" onSubmit={handleCreateTask}>
+            <div className="flex mr-12 gap-x-3">
+              <Input
+                name="task-name"
+                placeHolder="What are we going to do today?"
+                type="text"
+                labelClassName="grow"
+                backClassName="bg-gray-dark"
+                className="bg-gray-light h-7"
+                required
+                />
+
+            </div>
+            <div className="flex items-center gap-x-3">
+              <PomoTargeted />
+              <Input
+                name="task-pomo-estimated"
+                placeHolder="Estimated pomodoros"
+                type="number"
+                labelClassName="grow"
+                backClassName="bg-gray-dark"
+                className="bg-gray-light h-7"
+                required
+              />
+              <Button
+                type="submit"
+                height="low"
+                backClassName="bg-tomato-dark"
+                frontClassName="bg-tomato-normal"
+              >
+                <ArrowEnter className="text-white" />
+              </Button>
+            </div>
           </form>
         }
       </Panel>

@@ -1,5 +1,5 @@
 import Button from "@components/ui/Button"
-import { Grip, Plus, ArrowEnter, OptionVertical, PomoTargeted, PomoCompleted } from '@components/icons'
+import { Grip, Plus, ArrowEnter, OptionVertical, PomoTargeted, PomoCompleted } from '@components/Icons'
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { createTask, updateTask, removeTask } from "@redux/taskSlice"

@@ -1,7 +1,7 @@
 import '@assets/main.css'
 import AddTask from '@components/AddTask'
-import { Gear, Reload, User, Speaker } from '@components/icons'
-import OptionVertical from '@components/icons/OptionVertical'
+import { Gear, Reload, User, Speaker } from '@components/Icons'
+import OptionVertical from '@components/Icons/OptionVertical'
 import TaskItem from '@components/TaskItem'
 import TaskList from '@components/TaskList'
 import TaskPanel from '@components/TaskPanel'
@@ -22,7 +22,7 @@ export default function Home() {
   } = useClock(5)
 
   const [ isDisplayConfig, setIsDisplayConfig ] = useState<boolean>(false)
-  const [ isMuted, setIsMuted ] = useState<boolean>(false)
+  const [ isMuted, setIsMuted ] = useState<boolean>(false) // TO DO: Pasarlos a la configuracion (dentro del estado)
 
   return (
     <main className="flex h-full py-10 font-main bg-tomato-normal grow">
@@ -41,7 +41,7 @@ export default function Home() {
           >
               <div className="flex flex-col gap-y-4">
                 <p className="font-bold text-center text-white select-none text-8xl">{formatToTimeClock(timeRest)}</p>
-                {!isDisplayConfig &&
+                {isDisplayConfig &&
                   <div className="flex justify-center px-3 gap-x-5">
                     <Button onClick={restartHandler} backClassName="bg-gray-light" frontClassName="flex justify-center bg-white max-h-[40px]">
                       <Reload className="text-tomato-dark" />

@@ -1,17 +1,12 @@
 import clsx from "clsx"
 import style from './Input.module.css'
 
-interface InputProps {
-  name?: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | JSX.Element;
   labelClassName?: string;
   className?: string;
   backClassName?: string;
-  disabled?: boolean;
   placeHolder?: string;
-  value?: string;
-  defaultValue?: string;
-  required?: boolean;
 }
 
 export default function Input({
