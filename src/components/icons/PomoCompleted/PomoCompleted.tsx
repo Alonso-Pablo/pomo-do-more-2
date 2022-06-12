@@ -1,6 +1,9 @@
-export default function PomoCompleted() {
+interface PomoCompletedProps extends React.SVGAttributes<SVGSVGElement> {}
+
+
+export default function PomoCompleted(props: PomoCompletedProps) {
   return (
-    <svg width="19" height="20" viewBox="0 0 19 20" fill="none">
+    <svg width="19" height="20" viewBox="0 0 19 20" fill="none" {...props}>
       <path d="M15.5081 12.1042C15.5081 15.9218 12.0365 19.0165 7.75403 19.0165C3.4716 19.0165 0 15.9218 0 12.1042C0 8.28665 3.4716 7.12735 7.75403 7.12735C12.0365 7.12735 15.5081 8.28665 15.5081 12.1042Z" fill="#FF6347"/>
       <rect width="14.6301" height="2.92601" transform="matrix(0.706211 -0.708001 0.706211 0.708001 5.698 10.3581)" fill="#41E6A0"/>
       <rect width="7.02243" height="2.77357" transform="matrix(0.706211 0.708001 -0.706211 0.708001 2.95874 3.68708)" fill="#41E6A0"/>

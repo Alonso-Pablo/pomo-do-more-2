@@ -1,6 +1,8 @@
-export default function PomoTargeted() {
+interface PomoTargetedProps extends React.SVGAttributes<SVGSVGElement> {}
+
+export default function PomoTargeted(props: PomoTargetedProps) {
   return (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" {...props}>
     <path d="M16.5081 9.97686C16.5081 13.7944 13.0365 16.8892 8.75403 16.8892C4.4716 16.8892 1 13.7944 1 9.97686C1 6.1593 4.4716 5 8.75403 5C13.0365 5 16.5081 6.1593 16.5081 9.97686Z" fill="#FF6347"/>
     <ellipse cx="12.2998" cy="11.6815" rx="1.29981" ry="0.808823" fill="#FF8873"/>
     <rect width="5.13446" height="1.02689" transform="matrix(0.706211 -0.708001 0.706211 0.708001 7.64886 9.50788)" fill="#D35A44"/>

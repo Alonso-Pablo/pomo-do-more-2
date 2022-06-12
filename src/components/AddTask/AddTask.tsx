@@ -67,7 +67,7 @@ export default function AddTask() {
           <form className="flex py-3 pr-3 justify-evenly grow gap-x-3" onSubmit={handleCreateTask}>
             <Input
               name="task-name"
-              placeHolder="What are we doing today?"
+              placeHolder="What are we going to do today?"
               labelClassName="grow"
               backClassName="bg-gray-dark"
               className="bg-gray-light h-7"
