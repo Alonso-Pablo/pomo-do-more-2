@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "types": ["node"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -29,7 +29,7 @@
       "@utils/*": ["utils/*"],
     }
   },
-  "include": ["src"],
+  "include": ["./src"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

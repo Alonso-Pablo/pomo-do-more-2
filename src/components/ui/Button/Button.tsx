@@ -39,7 +39,7 @@ interface ButtonProps {
 }
 
 export default function Button({
-  onClick,
+  onClick = () => {},
   disabled,
   label,
   labelClassName,
