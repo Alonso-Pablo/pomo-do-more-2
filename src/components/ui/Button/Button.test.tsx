@@ -1,13 +1,19 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import Button from './Button'
-import clsx from 'clsx'
-
-jest.mock('clsx', (...className) => className)
 
 describe('<Button />', () => {
   
-  it('should render Button', () => {
-    const { container } = render(<Button />)
+  it('should render Button component', () => {
+    render(<Button />)
     expect(screen.getByRole('button'))
+  })
+
+  it('should call onClick function', () => {
+    const mockFn = jest.fn()
+
+    render(<Button onClick={mockFn}/>)
+    fireEvent.click(screen.getByRole('button'))
+    debugger
+    expect(mockFn).toHaveBeenCalled()
   })
 })
