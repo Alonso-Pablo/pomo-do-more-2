@@ -13,7 +13,6 @@ describe('<Button />', () => {
 
     render(<Button onClick={mockFn}/>)
     fireEvent.click(screen.getByRole('button'))
-    debugger
     expect(mockFn).toHaveBeenCalled()
   })
 })

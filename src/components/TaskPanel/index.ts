@@ -1,1 +1,1 @@
-export { default } from './TaskPanel'
+export { default } from './TaskPanel';

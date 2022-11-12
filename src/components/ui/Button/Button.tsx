@@ -1,36 +1,33 @@
-import { useState } from 'react'
-import clsx from 'clsx'
-import style from './Button.module.css'
+import { useState } from 'react';
+import clsx from 'clsx';
+import style from './Button.module.css';
 
 interface Variants {
   [key: string]: string;
 }
 
 const variants: Variants = {
-  'text': 'back--text',
-  'contained': 'back--contained',
-  'outlined': 'back--outlined',
-}
+  text: 'back--text',
+  contained: 'back--contained',
+  outlined: 'back--outlined'
+};
 
 interface Heights {
   [key: string]: string[];
 }
 
 const heights: Heights = {
-  'high': ['animate-pressInHigh', 'animate-pressOutHigh'],
-  'normal': ['animate-pressInNormal', 'animate-pressOutNormal'],
-  'low': ['animate-pressInLow', 'animate-pressOutLow'],
-}
+  high: ['animate-pressInHigh', 'animate-pressOutHigh'],
+  normal: ['animate-pressInNormal', 'animate-pressOutNormal'],
+  low: ['animate-pressInLow', 'animate-pressOutLow']
+};
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
-  disabled?: boolean;
   label?: string;
   labelClassName?: string;
-  className?: string;
   frontClassName?: string;
   backClassName?: string;
-  children?: React.ReactElement | React.ReactElement[];
   icon?: React.ReactElement;
   height?: 'high' | 'normal' | 'low';
   variant?: 'text' | 'contained' | 'outlined';
@@ -39,6 +36,7 @@ interface ButtonProps {
 }
 
 export default function Button({
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick = () => {},
   disabled,
   label,
@@ -54,36 +52,33 @@ export default function Button({
   isPressed,
   ...rest
 }: ButtonProps): JSX.Element {
-  const [ pressed, setPressed ] = useState<boolean>(isPressed || false)
+  const [pressed, setPressed] = useState<boolean>(isPressed || false);
 
   function handleOnClick() {
     if (!disabled) {
-      setPressed(!pressed)
+      setPressed(!pressed);
       if (onClick) {
-        onClick()
+        onClick();
       }
-      return
+      return;
     }
     if (!pressed) {
-      setPressed(true)
+      setPressed(true);
     }
   }
 
   const content = (
     <>
-      {label
-        ? <>
-            {icon && icon}
-            <p className={clsx(style['text'], labelClassName && labelClassName, backClassName && backClassName)}>
-              {label}
-            </p>
-          </>
-        : <>
-            {children}
-          </>
-      }
+      {label ? (
+        <>
+          {icon && icon}
+          <p className={clsx(style['text'], labelClassName && labelClassName, backClassName && backClassName)}>{label}</p>
+        </>
+      ) : (
+        <>{children}</>
+      )}
     </>
-  )
+  );
 
   return (
     <button
@@ -93,22 +88,19 @@ export default function Button({
       type={type}
       {...rest}
     >
-      {variant === 'contained'
-        ? <div
-            className={clsx(
-              style['front--contained'],
-              disabled
-                ? style['front-disabled--contained']
-                : (pressed ? heights[height][0] : heights[height][1]),
-              frontClassName && frontClassName
-            )}
-          >
-            {content}
-          </div>
-        : <>
-            {content}
-          </>
-      }
+      {variant === 'contained' ? (
+        <div
+          className={clsx(
+            style['front--contained'],
+            disabled ? style['front-disabled--contained'] : pressed ? heights[height][0] : heights[height][1],
+            frontClassName && frontClassName
+          )}
+        >
+          {content}
+        </div>
+      ) : (
+        <>{content}</>
+      )}
     </button>
-  )
+  );
 }

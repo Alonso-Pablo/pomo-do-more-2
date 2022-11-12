@@ -1,1 +1,1 @@
-export { default } from './Gear'
+export { default } from './Gear';

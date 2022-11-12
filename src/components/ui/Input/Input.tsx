@@ -1,12 +1,10 @@
-import clsx from "clsx"
-import style from './Input.module.css'
+import clsx from 'clsx';
+import style from './Input.module.css';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | JSX.Element;
   labelClassName?: string;
-  className?: string;
   backClassName?: string;
-  placeHolder?: string;
 }
 
 export default function Input({
@@ -16,7 +14,7 @@ export default function Input({
   className,
   backClassName,
   disabled,
-  placeHolder,
+  placeholder,
   value,
   defaultValue,
   required,
@@ -30,7 +28,7 @@ export default function Input({
           name={name}
           className={clsx(style['input'], className && className)}
           disabled={disabled}
-          placeholder={placeHolder}
+          placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}
           required={required}
@@ -38,5 +36,5 @@ export default function Input({
         />
       </div>
     </label>
-  )
+  );
 }

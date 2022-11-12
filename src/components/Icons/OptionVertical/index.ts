@@ -1,1 +1,1 @@
-export { default } from './OptionVertical'
+export { default } from './OptionVertical';

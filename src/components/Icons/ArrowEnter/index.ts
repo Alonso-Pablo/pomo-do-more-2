@@ -1,1 +1,1 @@
-export { default } from './ArrowEnter'
+export { default } from './ArrowEnter';

@@ -1,1 +1,1 @@
-export * from './clsx.mock'
+export * from './clsx.mock';

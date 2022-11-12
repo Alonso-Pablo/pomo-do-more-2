@@ -1,1 +1,1 @@
-export { default } from './PomoTargeted'
+export { default } from './PomoTargeted';

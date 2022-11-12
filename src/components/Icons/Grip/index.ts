@@ -1,1 +1,1 @@
-export { default } from './Grip'
+export { default } from './Grip';

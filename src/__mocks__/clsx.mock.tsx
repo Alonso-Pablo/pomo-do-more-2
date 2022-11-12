@@ -1,3 +1,3 @@
-import clsx from 'clsx'
+import clsx from 'clsx';
 
-export const clsxMock = clsx as jest.Mocked<typeof clsx>
+export const clsxMock = clsx as jest.Mocked<typeof clsx>;
